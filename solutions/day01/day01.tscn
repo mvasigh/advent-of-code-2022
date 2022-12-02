@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://4dyqmr7ilhfy"]
+
+[ext_resource type="PackedScene" uid="uid://bfcb1lwe7tkaq" path="res://lib/player.tscn" id="1_wfhrg"]
+[ext_resource type="PackedScene" uid="uid://cf5qsexp3hedq" path="res://lib/environment.tscn" id="2_6e0pg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i3a0j"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awlen"]
+albedo_color = Color(0.054902, 0.0235294, 0.160784, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ink6w"]
+material = SubResource("StandardMaterial3D_awlen")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7mr7m"]
+radius = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_dgokx"]
+radius = 2.0
+height = 4.0
+
+[node name="Day 01" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wfhrg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_i3a0j")
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_ink6w")
+skeleton = NodePath("../..")
+
+[node name="Sphere" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11655, 3.1828, -5.45874)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere"]
+shape = SubResource("SphereShape3D_7mr7m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere"]
+mesh = SubResource("SphereMesh_dgokx")
+
+[node name="Environment" parent="." instance=ExtResource("2_6e0pg")]

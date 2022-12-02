@@ -1,0 +1,36 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://6tckmf5c4yl1"
+path="res://.godot/imported/letter_v.glb-a4805328e5ac5af893b514ce607abb59.scn"
+
+[deps]
+
+source_file="res://assets/models/letter_v.glb"
+dest_files=["res://.godot/imported/letter_v.glb-a4805328e5ac5af893b514ce607abb59.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=2.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:v": {
+"generate/physics": true,
+"physics/body_type": 1
+}
+}
+}

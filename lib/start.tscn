@@ -1,0 +1,106 @@
+[gd_scene load_steps=19 format=3 uid="uid://cjfldooxtu0to"]
+
+[ext_resource type="PackedScene" uid="uid://bfcb1lwe7tkaq" path="res://lib/player.tscn" id="1_yjjj3"]
+[ext_resource type="PackedScene" uid="uid://6tckmf5c4yl1" path="res://assets/models/letter_v.glb" id="3_ayhuh"]
+[ext_resource type="PackedScene" uid="uid://ds8o3v700rv3" path="res://assets/models/letter_A.glb" id="3_e5u3c"]
+[ext_resource type="PackedScene" uid="uid://brujge5i2lfwd" path="res://assets/models/letter_o.glb" id="3_icll4"]
+[ext_resource type="PackedScene" uid="uid://bflgtem060jw1" path="res://assets/models/letter_d.glb" id="4_vfueb"]
+[ext_resource type="PackedScene" uid="uid://bhymkj2euey21" path="res://assets/models/letter_e.glb" id="6_nqkwr"]
+[ext_resource type="PackedScene" uid="uid://cmfbobcwtufy8" path="res://assets/models/letter_n.glb" id="7_ppktx"]
+[ext_resource type="PackedScene" uid="uid://dwyoxn3h0q3c4" path="res://assets/models/letter_t.glb" id="8_s30um"]
+[ext_resource type="PackedScene" uid="uid://cqdysl4j2hpjh" path="res://assets/models/letter_f.glb" id="10_gcvk2"]
+[ext_resource type="PackedScene" uid="uid://d1d53qxxkpnhp" path="res://assets/models/letter_C.glb" id="11_3jdag"]
+[ext_resource type="PackedScene" uid="uid://hc368gpynj45" path="res://assets/models/number_2.glb" id="12_udm0j"]
+[ext_resource type="PackedScene" uid="uid://bmkrapvd4foey" path="res://assets/models/number_0.glb" id="13_bfdxt"]
+[ext_resource type="Script" path="res://lib/portal.cs" id="14_1h5bm"]
+[ext_resource type="PackedScene" uid="uid://dkfvkmq7u0a76" path="res://assets/models/start.glb" id="14_c0gsk"]
+[ext_resource type="PackedScene" uid="uid://8vfqipouqak5" path="res://assets/models/portal.blend" id="14_roadx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q762j"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_mi3it"]
+sky_material = SubResource("ProceduralSkyMaterial_q762j")
+
+[sub_resource type="Environment" id="Environment_t6neg"]
+background_mode = 2
+sky = SubResource("Sky_mi3it")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[node name="Start" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_yjjj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Level" parent="Environment" instance=ExtResource("14_c0gsk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.96288, 0)
+
+[node name="Letters" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3521, 2.59481, -5.71253)
+
+[node name="letter_A" parent="Environment/Letters" instance=ExtResource("3_e5u3c")]
+
+[node name="letter_d" parent="Environment/Letters" instance=ExtResource("4_vfueb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.289, 0, -0.0146232)
+
+[node name="letter_v" parent="Environment/Letters" instance=ExtResource("3_ayhuh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65559, 0, -0.0966282)
+
+[node name="letter_e" parent="Environment/Letters" instance=ExtResource("6_nqkwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00104, 0, -0.0191884)
+
+[node name="letter_n" parent="Environment/Letters" instance=ExtResource("7_ppktx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26154, 0, -0.0279393)
+
+[node name="letter_t" parent="Environment/Letters" instance=ExtResource("8_s30um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.37981, 0, -0.143356)
+
+[node name="letter_o" parent="Environment/Letters" instance=ExtResource("3_icll4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.72405, 0, -0.145658)
+
+[node name="letter_f" parent="Environment/Letters" instance=ExtResource("10_gcvk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.91708, 0, -0.139569)
+
+[node name="letter_C" parent="Environment/Letters" instance=ExtResource("11_3jdag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.265, 0, -0.0729475)
+
+[node name="letter_o2" parent="Environment/Letters" instance=ExtResource("3_icll4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6458, 0, -0.147047)
+
+[node name="letter_d2" parent="Environment/Letters" instance=ExtResource("4_vfueb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0185, 0, -0.0215588)
+
+[node name="letter_e2" parent="Environment/Letters" instance=ExtResource("6_nqkwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.338, 0, -0.213356)
+
+[node name="number_2" parent="Environment/Letters" instance=ExtResource("12_udm0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8027, 0, -0.141663)
+
+[node name="number_2_1" parent="Environment/Letters" instance=ExtResource("12_udm0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2688, 0, -0.237199)
+
+[node name="number_0" parent="Environment/Letters" instance=ExtResource("13_bfdxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9913, 0, -0.11501)
+
+[node name="number_2_2" parent="Environment/Letters" instance=ExtResource("12_udm0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.487, 0, -0.270069)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.814116, -0.57803, 0.0556579, 0, 0.0958458, 0.995396, -0.580703, 0.810368, -0.0780295, 0, 0, 0)
+light_color = Color(0.988235, 0.929412, 0.968627, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t6neg")
+
+[node name="Portal" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, 0)
+script = ExtResource("14_1h5bm")
+
+[node name="PortalMesh" parent="Portal" instance=ExtResource("14_roadx")]
