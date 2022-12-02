@@ -1,8 +1,6 @@
 using Godot;
-using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 
 public partial class Day02 : Node3D
 {
@@ -23,17 +21,15 @@ public partial class Day02 : Node3D
       input,
       new Dictionary<string, int>()
       {
-				// Points for which of rock, paper or scissors I play
-				{ "X", 1},
-        { "Y", 2},
-        { "Z", 3},
-				// Outcome points
-				{ "A Y", 6},
-        { "B Z", 6},
-        { "C X", 6},
-        { "A X", 3},
-        { "B Y", 3},
-        { "C Z", 3},
+        {"X", 1},
+        {"Y", 2},
+        {"Z", 3},
+        {"A Y", 6},
+        {"B Z", 6},
+        {"C X", 6},
+        {"A X", 3},
+        {"B Y", 3},
+        {"C Z", 3},
       }
     ));
   }
@@ -44,10 +40,8 @@ public partial class Day02 : Node3D
       input,
       new Dictionary<string, int>()
       {
-				// Points for outcome
 				{"Y", 3},
         {"Z", 6},
-				// Points for what I play
 				{"A X", 3},
         {"A Y", 1},
         {"A Z", 2},
