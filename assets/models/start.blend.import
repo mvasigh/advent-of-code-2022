@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcxi2khbneowj"
+uid="uid://kf66ysn4qqnw"
 path="res://.godot/imported/start.blend-db509c14ecf74440058725b56436dbba.scn"
 
 [deps]
@@ -25,8 +25,16 @@ meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
+animation/trimming=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Cube": {
+"generate/physics": true,
+"physics/shape_type": 2
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true

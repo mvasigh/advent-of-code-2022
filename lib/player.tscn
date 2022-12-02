@@ -11,18 +11,23 @@ size = Vector3(0.2, 0.2, 0.5)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_h1ne7")
+PlayerModel = NodePath("PlayerModel")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lb6q5")
 
-[node name="PlayerMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_12klq")
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 8)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.000833273, 9.99595, 8.00875)
 current = true
 fov = 65.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="PlayerModel" type="Node3D" parent="."]
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="PlayerModel"]
+mesh = SubResource("CapsuleMesh_12klq")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
 mesh = SubResource("BoxMesh_1t76m")
+skeleton = NodePath("../..")

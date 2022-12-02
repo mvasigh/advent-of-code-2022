@@ -8,16 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Resource",
-"class": &"Challenge",
-"language": &"GDScript",
-"path": "res://lib/challenge.gd"
-}]
-_global_script_class_icons={
-"Challenge": ""
-}
-
 [application]
 
 config/name="Advent of Code 2022"

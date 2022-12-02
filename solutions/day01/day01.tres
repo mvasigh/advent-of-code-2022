@@ -1,7 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c3woeeetkywqt"]
-
-[ext_resource type="Script" path="res://lib/challenge.gd" id="1_vimm8"]
-
-[resource]
-script = ExtResource("1_vimm8")
-day = 1

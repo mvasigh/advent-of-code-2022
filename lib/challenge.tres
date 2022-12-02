@@ -1,8 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dmyodq2rqsmhk"]
-
-[ext_resource type="Script" path="res://lib/challenge.gd" id="1_7u5xt"]
-
-[resource]
-resource_name = "Challenge"
-script = ExtResource("1_7u5xt")
-health = null
