@@ -40,9 +40,9 @@ public partial class Day02 : Node3D
       input,
       new Dictionary<string, int>()
       {
-				{"Y", 3},
+        {"Y", 3},
         {"Z", 6},
-				{"A X", 3},
+        {"A X", 3},
         {"A Y", 1},
         {"A Z", 2},
         {"B X", 1},
