@@ -11,13 +11,13 @@ public partial class Day02 : Node3D
   {
     var input = ReadInput(_inputPath);
 
-    Part1(input);
-    Part2(input);
+    GD.Print("Part 1: " + Part1(input));
+    GD.Print("Part 2: " + Part2(input));
   }
 
-  void Part1(string input)
+  int Part1(string input)
   {
-    GD.Print("Part 1: " + CalcScore(
+    return CalcScore(
       input,
       new Dictionary<string, int>()
       {
@@ -31,12 +31,12 @@ public partial class Day02 : Node3D
         {"B Y", 3},
         {"C Z", 3},
       }
-    ));
+    );
   }
 
-  void Part2(string input)
+  int Part2(string input)
   {
-    GD.Print("Part 2: " + CalcScore(
+    return CalcScore(
       input,
       new Dictionary<string, int>()
       {
@@ -52,7 +52,7 @@ public partial class Day02 : Node3D
         {"C Y", 3},
         {"C Z", 1},
       }
-    ));
+    );
   }
 
   static int CalcScore(string input, Dictionary<string, int> conditions)
