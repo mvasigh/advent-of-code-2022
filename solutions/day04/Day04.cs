@@ -18,7 +18,7 @@ public partial class Day04 : Node3D
   int Part1(string input)
   {
     return input.Split('\n')
-      .Select(line => line.Split(',').Select(GetRange).ToArray())
+      .Select(line => line.Split(',').Select(ParseRange).ToArray())
       .Where(ranges => Contains(ranges[0], ranges[1]))
       .Count();
   }
@@ -26,12 +26,12 @@ public partial class Day04 : Node3D
   int Part2(string input)
   {
     return input.Split('\n')
-      .Select(line => line.Split(',').Select(GetRange).ToArray())
+      .Select(line => line.Split(',').Select(ParseRange).ToArray())
       .Where(ranges => Overlap(ranges[0], ranges[1]))
       .Count();
   }
 
-  static (int, int) GetRange(string rangeStr)
+  static (int, int) ParseRange(string rangeStr)
   {
     var parsed = rangeStr.Split('-').Select(str => Int32.Parse(str)).ToArray();
     return (parsed[0], parsed[1]);
