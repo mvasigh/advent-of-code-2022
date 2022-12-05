@@ -9,8 +9,6 @@ public partial class Day05 : Node3D
   [Export(PropertyHint.File, "*.txt")]
   private string _inputPath;
 
-  Regex moveRegex = new Regex(@"move (?<number>\d+) from (?<from>\d+) to (?<to>\d+)");
-
   public override void _Ready()
   {
     var input = ReadInput(_inputPath);
@@ -24,18 +22,13 @@ public partial class Day05 : Node3D
     var stacks = ParseStacks(input);
     var moves = ParseMoves(input);
 
-    moves.ForEach(move =>
+    foreach (Move move in moves)
     {
-      var match = moveRegex.Match(move);
-      var num = Int32.Parse(match.Groups["number"].Value);
-      var from = Int32.Parse(match.Groups["from"].Value) - 1;
-      var to = Int32.Parse(match.Groups["to"].Value) - 1;
-
-      for (int n = 0; n < num; n++)
+      for (int n = 0; n < move.Number; n++)
       {
-        stacks[to].Push(stacks[from].Pop());
+        stacks[move.To].Push(stacks[move.From].Pop());
       }
-    });
+    }
 
     return new String(stacks.Select(s => s.Peek()).ToArray());
   }
@@ -45,32 +38,27 @@ public partial class Day05 : Node3D
     var stacks = ParseStacks(input);
     var moves = ParseMoves(input);
 
-    moves.ForEach(move =>
+    foreach (Move move in moves)
     {
-      var match = moveRegex.Match(move);
-      var num = Int32.Parse(match.Groups["number"].Value);
-      var from = Int32.Parse(match.Groups["from"].Value) - 1;
-      var to = Int32.Parse(match.Groups["to"].Value) - 1;
-
       var temp = new LinkedList<char>();
-      for (int n = 0; n < num; n++)
+      for (int n = 0; n < move.Number; n++)
       {
-        temp.AddFirst(stacks[from].Pop());
+        temp.AddFirst(stacks[move.From].Pop());
       }
 
       while (temp.Count > 0)
       {
-        stacks[to].Push(temp.First.Value);
+        stacks[move.To].Push(temp.First.Value);
         temp.RemoveFirst();
       }
-    });
+    }
 
     return new String(stacks.Select(s => s.Peek()).ToArray());
   }
 
-  List<string> ParseMoves(string input)
+  IEnumerable<Move> ParseMoves(string input)
   {
-    return input.Split("\n\n").ElementAt(1).Split('\n').ToList();
+    return input.Split("\n\n").ElementAt(1).Split('\n').Select(Move.Parse);
   }
 
   Stack<char>[] ParseStacks(string input)
@@ -87,6 +75,33 @@ public partial class Day05 : Node3D
     }
 
     return stacks;
+  }
+
+  struct Move
+  {
+    Move(int number, int from, int to)
+    {
+      Number = number;
+      From = from;
+      To = to;
+    }
+
+    public int Number { get; }
+    public int From { get; }
+    public int To { get; }
+
+    static Regex moveRegex = new Regex(@"move (?<number>\d+) from (?<from>\d+) to (?<to>\d+)");
+
+    public static Move Parse(string moveStr)
+    {
+      var match = moveRegex.Match(moveStr);
+
+      return new Move(
+        Int32.Parse(match.Groups["number"].Value),
+        Int32.Parse(match.Groups["from"].Value) - 1,
+        Int32.Parse(match.Groups["to"].Value) - 1
+      );
+    }
   }
 
   string ReadInput(string filePath)
