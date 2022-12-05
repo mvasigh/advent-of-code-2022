@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpgv5tlbvislm"]
+
+[ext_resource type="Script" path="res://solutions/day05/Day05.cs" id="1_b0xua"]
+
+[node name="Day 05" type="Node3D"]
+script = ExtResource("1_b0xua")
+_inputPath = "res://solutions/day05/input.txt"
